@@ -1,0 +1,2 @@
+$("#novo_componente").toggle('slow');
+$("#atv_componente").html("<%=escape_javascript(render('index', :componentes => @componentes)) %>");

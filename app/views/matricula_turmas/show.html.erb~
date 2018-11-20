@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID Matricula:</strong>
+  <%= @matricula_turma.id %>
+</p>
+
+<p>
+  <strong>Discente:</strong>
+  <%= @matricula_turma.aluno.nome %>
+</p>
+
+<p>
+  <strong>Turma:</strong>
+  <%= @matricula_turma.turma.componente_matriz.disciplina.nome %>
+</p>
+
+<%= link_to 'Editar', edit_matricula_turma_path(@matricula_turma) %> |
+<%= link_to 'Voltar', matricula_turmas_path %>

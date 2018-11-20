@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Matrizs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Curso</th>
+      <th>Curriculo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matrizs.each do |matriz| %>
+      <tr>
+        <td><%= matriz.nome %></td>
+        <td><%= matriz.curso_id %></td>
+        <td><%= matriz.curriculo_id %></td>
+        <td><%= link_to 'Show', matriz %></td>
+        <td><%= link_to 'Edit', edit_matriz_path(matriz) %></td>
+        <td><%= link_to 'Destroy', matriz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Matriz', new_matriz_path %>

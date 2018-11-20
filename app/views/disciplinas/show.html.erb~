@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @disciplina.nome %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @disciplina.curso_id %>
+</p>
+
+
+
+	<%= form_tag importar_planilha_path, multipart: true do %>
+
+		<div style="display:inline">	
+	<%= file_field_tag :file %> <button class="btn btn-success  dim" type="submit"><i class="fa fa-upload"></i> Enviar </button>
+		</div>
+	<% end %>
+<%= link_to 'Edit', edit_disciplina_path(@disciplina) %> |
+<%= link_to 'Back', disciplinas_path %>

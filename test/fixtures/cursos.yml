@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  departamento_id: 1
+  matriz_curricular_id: 1
+
+two:
+  nome: MyString
+  departamento_id: 1
+  matriz_curricular_id: 1

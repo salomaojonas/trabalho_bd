@@ -1,0 +1,8 @@
+<div class="footer">
+    <div class="pull-right">
+        INSTITUTO FEDERAL DO CEARÁ
+    </div>
+    <div>
+        <strong>Copyright</strong> Meu Trabalho &copy; 2014-<%= Time.now.year%>
+    </div>
+</div>

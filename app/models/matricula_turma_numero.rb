@@ -1,0 +1,2 @@
+class MatriculaTurmaNumero < ApplicationRecord
+end

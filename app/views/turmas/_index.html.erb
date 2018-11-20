@@ -1,0 +1,41 @@
+						<% if @turmas.nil?
+
+							@turmas = turmas
+
+						end %>
+<div id="atv_turmas">
+						  <table class="table table-striped" >
+						   <thead>
+						      <tr>
+				            <th>Turma</th>
+										<th>Professor</th>
+				            <th colspan="3" style="text-align:center;">Ações</th>
+						      </tr>
+						      </thead>
+						      <tbody>
+
+										<% @turmas.each do |turma|%>
+						    		<tr>
+											<td><%= turma.nome %></td>
+											<td><%= turma.professor.nome %></td>
+											<td><%= link_to turma do %>
+														 <i class="fa fa-search"></i>
+													<% end %>
+											</td>
+							
+											<td><%= link_to edit_turma_path(turma) do %>
+												<i class="fa fa-search"></i>
+												<% end %>
+											</td>
+
+											<td>
+												<%= link_to turma_path(turma), method: :delete, data: { confirm: 'Deseja Excluir?' } do %>
+												<i class="fa fa-minus-circle"></i>
+											</td>
+											<% end %>
+
+										</tr>
+										<%end %>
+						      </tbody>
+						  </table>
+							</div>

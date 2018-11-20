@@ -1,0 +1,44 @@
+						<% if @matriculas.nil?
+
+							@matriculas = matriculas
+
+						end %>
+<div id="atv_matriculas">
+				    <table class="table table-striped">
+				     <thead>
+				        <tr>
+		              <th>ID Matrícula</th>
+									<th>Discente</th>
+									<th>Disciplina</th>
+									<th></th>
+		              <th colspan="3" style="text-align:center;">Ações</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+
+									<% @matriculas.each do |matricula|%>
+				      		<tr>
+										<td><%= matricula.id %></td>
+										<td><%= matricula.aluno.nome %></td>
+										<td><%= matricula.turma.componente_matriz.disciplina.nome %></td>
+										<td><%= link_to matricula do %>
+													 <i class="fa fa-search"></i>
+												<% end %>
+										</td>
+							
+										<td><%= link_to edit_matricula_turma_path(matricula) do %>
+											<i class="fa fa-search"></i>
+											<% end %>
+										</td>
+
+										<td>
+											<%= link_to matricula_turma_path(matricula), method: :delete, data: { confirm: 'Deseja Excluir?' } do %>
+											<i class="fa fa-minus-circle"></i>
+										</td>
+										<% end %>
+
+									</tr>
+									<%end %>
+				        </tbody>
+				    </table>
+					</div>

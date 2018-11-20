@@ -1,0 +1,120 @@
+<div class="table-responsive" id="table_nova">
+<div id="atv_turmas">
+						  <table class="table table-striped" >
+						   <thead>
+						      <tr>
+				            <th>Turma</th>
+										<th>Professor</th>
+				            <th colspan="3" style="text-align:center;">Ações</th>
+						      </tr>
+						      </thead>
+						      <tbody>
+
+										<% @turmas.each do |turma|%>
+						    		<tr>
+											<td><%= turma.nome %></td>
+											<td><%= turma.professor.nome %></td>
+											<td><%= link_to turma do %>
+														 <i class="fa fa-search"></i>
+													<% end %>
+											</td>
+							
+											<td><%= link_to edit_turma_path(turma) do %>
+												<i class="fa fa-search"></i>
+												<% end %>
+											</td>
+
+											<td>
+												<%= link_to turma_path(turma), method: :delete, data: { confirm: 'Deseja Excluir?' } do %>
+												<i class="fa fa-minus-circle"></i>
+											</td>
+											<% end %>
+
+										</tr>
+										<%end %>
+						      </tbody>
+						  </table>
+							</div>
+
+				<%= button_to 'New Disciplina', new_turma_path,  class: "btn btn-sm btn-primary", method: :get %>
+
+						
+				</div>
+
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+
+	$("#init").click(function() {
+			grupo_id = $("#grupo_id").val();
+			mes = $("#_data_2i").val();
+			ano = $("#_data_1i").val();
+			semana = $("#semana_frequencia_id").val();
+			$.post({
+				url: "/grupos/inicia_parametros_agrupados",
+		    data: {grupo_id: $("#grupo_id").val(),semana_frequencia_id: semana, mes: mes, ano: ano}
+			});
+	});
+
+	$("#salomaol").click(function(){
+		alert("slsklskls");
+	});
+
+	
+$("#botao").click(function(){
+		$("#nova_turma").toggle('slow');
+	});
+
+
+  $('.chosen-select').chosen({width: "20%"});
+	$('#grupo_id').change(function() {
+			$.post({
+				url: "/grupos/show_alternative",
+		    data: {grupo_id: $(this).val()}
+			});
+	});		
+
+	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+	elems.forEach(function(html) {
+
+		var switchery = new Switchery(html, { color: '#1AB394' });
+	});
+
+
+});
+
+	function t(){
+			$.post({
+				url: "/relatorio_pastors/gerar_relatorio_presenca",
+		    data: {grupo_id: $(this).val()}
+			});
+
+	}
+	
+	function loadMes(){
+		alert("nnnss");
+	}
+
+	function teste(a){
+
+		ano = $("#_data_1i").val();
+		if(a.id == "_data_2i" && ($("#_data_1i").val() > 0) ){
+			$.post({
+
+
+				url: "/grupos/show_semanas",
+		    data: {mes: $("#_data_2i").val(), ano: $("#_data_1i").val()}
+			});
+
+		}
+
+
+}
+</script>
+
+<% end %>

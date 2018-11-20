@@ -1,0 +1,2 @@
+$("#nova_matricula").toggle('slow');
+$("#atv_matriculas").html("<%=escape_javascript(render('index', :matriculas => @matriculas)) %>");

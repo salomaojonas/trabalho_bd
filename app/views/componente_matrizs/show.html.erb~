@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @componente_matriz.nome %>
+</p>
+
+<p>
+  <strong>Matriz:</strong>
+  <%= @componente_matriz.matriz.nome %>
+</p>
+
+<p>
+  <strong>Disciplina:</strong>
+  <%= @componente_matriz.disciplina.nome %>
+</p>
+
+<%= link_to 'Editar', edit_componente_matriz_path(@componente_matriz) %> |
+<%= link_to 'voltar', componente_matrizs_path %>
